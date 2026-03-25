@@ -1,42 +1,38 @@
 # Claude Launcher
 
-一个轻量级脚本，用于在当前目录快速启动 Claude Code。
+一个轻量级工具，用于在任意目录快速启动 Claude Code。
 
 ## 功能
 
-- 双击 exe 即可在当前目录启动 Claude Code
-- 自动切换到 exe 所在目录
-- 执行 `claude --dangerously-skip-permissions`
+- **`claude-launcher.bat`** — 双击或右键菜单直接启动，无需额外依赖
+- 支持传入目标路径参数，在指定目录启动
+- 支持传入初始 prompt 参数，启动后自动执行
+- 自动清除嵌套启动的环境变量干扰
 
-## 使用方法
+## 用法
 
-1. 将 `claude-run.exe` 复制到任意文件夹
-2. 双击运行
-3. 自动打开命令行窗口并启动 Claude Code
+```bat
+REM 在当前目录启动
+claude-launcher.bat
+
+REM 在指定目录启动
+claude-launcher.bat E:\project\my-app
+
+REM 带初始 prompt 启动
+claude-launcher.bat E:\project\my-app "帮我 review 代码"
+```
+
+**右键菜单集成**（可选）：将 bat 文件路径注册到注册表，实现文件夹右键"用 Claude 打开"。
 
 ## 项目结构
 
 ```
 claude-launcher/
-├── src/                 # 源代码
-│   └── run_claude.py
-├── dist/                # 编译后的 exe
-│   └── claude-run.exe
-├── README.md
-└── requirements.txt     # Python 依赖
-```
-
-## 构建
-
-```bash
-# 安装依赖
-pip install pyinstaller
-
-# 编译
-pyinstaller --onefile --console --name claude-run src/run_claude.py
+├── claude-launcher.bat   # 主启动脚本
+└── README.md
 ```
 
 ## 环境要求
 
-- Python 3.8+
-- Claude Code 已安装
+- Claude Code 已安装（`npm install -g @anthropic-ai/claude-code`）
+- claude 命令已加入系统 PATH
