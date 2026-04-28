@@ -6,6 +6,7 @@
 
 - **`claude-launcher.bat`** — Windows 下双击或右键菜单直接启动，无需额外依赖
 - **`claude-launcher.sh`** — macOS / Linux 下的等效脚本
+- 使用 `--effort max` 参数启用最大努力模式，获得更详细的响应
 - 支持传入目标路径参数，在指定目录启动
 - 支持传入初始 prompt 参数，启动后自动执行
 - 自动清除嵌套启动的环境变量干扰
