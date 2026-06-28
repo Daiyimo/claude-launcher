@@ -18,7 +18,7 @@ if [[ -n "$TARGET_DIR" ]]; then
 fi
 
 if [[ -n "$INITIAL_PROMPT" ]]; then
-    claude --permission-mode bypassPermissions --effort max --no-save-session "$INITIAL_PROMPT"
+    claude --permission-mode bypassPermissions --effort max "$INITIAL_PROMPT"
 else
-    claude --permission-mode bypassPermissions --effort max --no-save-session
+    claude --permission-mode bypassPermissions --effort max
 fi
