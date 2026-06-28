@@ -4,12 +4,21 @@
 
 ## 功能
 
-- **`claude-launcher.bat`** — Windows 下双击或右键菜单直接启动，无需额外依赖
-- **`claude-launcher.sh`** — macOS / Linux 下的等效脚本
+- **`claude-launcher.bat`** — Windows 启动脚本，支持传入目标路径和初始 prompt
+- **`claude-launcher.sh`** — macOS / Linux 启动脚本，功能同上
 - 使用 `--permission-mode bypassPermissions --effort max` 启动，无需重复确认权限
-- 支持传入目标路径参数，在指定目录启动
-- 支持传入初始 prompt 参数，启动后自动执行
 - 自动清除嵌套启动的环境变量干扰
+
+## 安装
+
+```bash
+# 克隆仓库
+git clone https://github.com/Daiyimo/claude-launcher.git
+cd claude-launcher
+
+# 给 sh 脚本添加执行权限（macOS / Linux）
+chmod +x claude-launcher.sh
+```
 
 ## 用法
 
@@ -41,16 +50,20 @@ claude-launcher.bat E:\project\my-app "帮我 review 代码"
 ./claude-launcher.sh ~/project/my-app "帮我 review 代码"
 ```
 
-## 项目结构
+## 一键更新
 
+```bash
+git pull origin master
 ```
-claude-launcher/
-├── claude-launcher.bat   # Windows 启动脚本
-├── claude-launcher.sh    # macOS / Linux 启动脚本
-└── README.md
+
+## 卸载
+
+```bash
+# 直接删除克隆的目录即可
+rm -rf claude-launcher
 ```
 
 ## 环境要求
 
 - Claude Code 已安装（`npm install -g @anthropic-ai/claude-code`）
-- claude 命令已加入系统 PATH
+- `claude` 命令已加入系统 PATH
